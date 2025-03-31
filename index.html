@@ -11,21 +11,35 @@
       background: #ffffff;
       font-family: sans-serif;
     }
-    .carousel-container {
+/*     .carousel-container {
       width: 100%;
       max-width: 800px;
       overflow: hidden;
       margin: 20px auto;
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    } */
+    .carousel-container {
+      width: 100%;
+      max-width: 1600px;
+      overflow-x: hidden; /* ⬅️ changed to overflow-x only */
+      margin: 20px auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 0 25%; /* ⬅️ NEW: create space to "peek" slides on both sides */
+      box-sizing: border-box; /* ⬅️ NEW: ensure padding doesn't break layout */
     }
     .carousel-track {
       display: flex;
       width: fit-content;
       animation: scroll 60s linear infinite;
     }
-    .carousel-slide {
+/*     .carousel-slide {
       min-width: 100%;
+    } */
+    .carousel-slide {
+      min-width: 50%; /* ⬅️ changed from 100% to 50% for peek effect */
+      box-sizing: border-box; /* ⬅️ optional but helps with padding/margin */
     }
     
     .carousel-slide img {
@@ -36,7 +50,7 @@
 
     @keyframes scroll {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-900%); }
+      100% { transform: translateX(-450%); }
     }
   </style>
 </head>
