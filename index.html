@@ -22,7 +22,8 @@
     .carousel-track {
       display: flex;
       width: fit-content;
-      animation: scroll 20s linear infinite;
+/*       animation: scroll 20s linear infinite; */
+      transition: transform 0.8s ease-in-out;
     }
     .carousel-slide {
       min-width: 100%;
@@ -53,5 +54,19 @@
       <div class="carousel-slide"><img src="https://picsum.photos/id/1015/800/400" alt="repeat" /></div> <!-- duplicate first slide for seamless loop --> -->
     </div>
   </div>
+
+    <script>
+    const track = document.getElementById('track');
+    const slides = track.children;
+    let index = 0;
+    const slideCount = slides.length;
+
+    function moveToNextSlide() {
+      index = (index + 1) % slideCount;
+      track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    setInterval(moveToNextSlide, 3000); // 3s interval with pause at each
+  </script>
 </body>
 </html>
